@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-<form action="/form/" method="post" class="smart-green">
+<form action="{% url 'go_form' %}" method="post" class="smart-green">
     <h1>留言信息
         <span>请留下你的信息.</span>
     </h1>
     <label>
         <span>姓名 :</span>
-        <input id="name" type="text" value="{{ my_message.name }}" name="name" class="error" placeholder="请输入您的姓名"/>
+        <input id="name" type="text" value="{% ifequal my_message.name|slice:'2' 'mx' %}mx{% else %}xm{% endifequal %}" name="name" class="error" placeholder="请输入您的姓名"/>
         <div class="error-msg"></div>
     </label>
 
